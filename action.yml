@@ -7,5 +7,8 @@ inputs:
     required: true
     default: 'config.json'
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
+  env:
+    INPUT_JSON_FILE: ${{ inputs.json_file }}  # Pass the input as an environment variable
+
