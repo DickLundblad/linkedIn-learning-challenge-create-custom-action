@@ -1,0 +1,8 @@
+name: 'set environment variables from json'
+description: 'load json file, set environment variables to be used in workflow'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding: 
+  icon: 'gift'
+  color: 'green'
