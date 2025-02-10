@@ -2,9 +2,9 @@ name: 'Read a JSON file and load all values as environment variables'
 description: 'Read and load all values from json file, set environment variables to be used in workflow.'
 author: 'Dick Lundblad'
 inputs:
-  json-file:
+  json_file:
     description: 'The path to the JSON file to be loaded.'
-    required: true
+    required: false
     default: 'config.json'
 runs:
   using: "docker"
