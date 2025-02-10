@@ -1,8 +1,8 @@
-name: 'set environment variables from json'
+name: 'Read a JSON file and load all values as environment variables'
 description: 'load json file, set environment variables to be used in workflow'
+author: 'Dick Lundblad'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-branding: 
-  icon: 'gift'
-  color: 'green'
+args: 
+  - "{{ inputs.json_file }}"
