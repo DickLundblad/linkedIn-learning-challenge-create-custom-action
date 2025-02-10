@@ -1,16 +1,37 @@
 # linkedIn-learning-challenge-create-custom-action
+# Load JSON as Environment Variables Action
 
-# Custom action
+This action loads all values from a JSON file and sets them as environment variables using Bash and Docker.
 
-## Docker file
+## Inputs
 
-## Script
+- `json-file`: The path to the JSON file to load. Default is `config.json`.
 
-# workflow
+## Example Usage
 
-##  Trigger on push events
+```yaml
+name: Load JSON as Environment Variables
 
-## use the custom action
+on:
+  push:
+    branches:
+      - main
 
+jobs:
+  load-json-env:
+    runs-on: ubuntu-latest
 
-create a custom action https://www.linkedin.com/learning/learning-github-actions-2/challenge-create-a-custom-action?autoSkip=true&amp;resume=false
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Load JSON and set environment variables
+        uses:  DickLundblad/linkedIn-learning-challenge-create-custom-action@v1
+        id: custom-action  # Added an ID to reference it later
+        with:
+          json-file: 'path/to/data.json'
+
+      - name: Use the environment variables
+        run: |
+          echo "Variable1: $VAR1"
+          echo "Variable2: $VAR2"
