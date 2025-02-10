@@ -12,12 +12,24 @@ if [[ ! -f "$JSON_FILE" ]]; then
     exit 1
 fi
 
-# Read JSON and export each key-value as an environment variable
-export_variables() {
+# Function to export key-value pairs as environment variables
+export_key_value_pairs() {
     jq -r 'to_entries|map("\(.key)=\(.value|tostring)")|.[]' "$JSON_FILE" | while IFS= read -r line; do
-        echo "Exporting: $line"
+        echo "Exporting key value pairs: $line"
         echo "$line" >> $GITHUB_ENV
     done
 }
 
-export_variables
+# Function to process arrays in the JSON file (arrays with JSON objects)
+export_array_elements() {
+    jq -r 'paths(scalars) as $p | getpath($p) | select(type == "array") | "\($p|join("."))=\(.)"' "$JSON_FILE" | while IFS= read -r line; do
+        echo "Exporting array element: $line"
+        echo "$line" >> $GITHUB_ENV
+    done
+}
+
+# Export regular key-value pairs
+export_key_value_pairs
+
+# Export array elements (if any)
+export_array_elements

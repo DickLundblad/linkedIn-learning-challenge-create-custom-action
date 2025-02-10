@@ -1,5 +1,12 @@
+
 {
-  "API_KEY": "123456",
-  "ENVIRONMENT": "production",
-  "DEBUG_MODE": "true"
-}
+  "name": "Configuration 1",
+  "components": [
+    { "name": "comp1",  "version": "v1.0.0"  },
+    { "name": "comp2",  "version": "v2.0.0"  }
+  ],
+  "testdata": [  
+    { "name": "testdata A", "version": "v1.1.0"  },
+    { "name": "testdata B", "version": "v1.2.0"  }
+  ]
+  }
