@@ -2,7 +2,8 @@
 
 set -e  # Exit on any error
 
-JSON_FILE=${1:-"config.json"}  # Default to "config.json" if no argument is given
+JSON_FILE=${1:-"default.json"}  # Default to "default.json" if no argument is given
+echo "file to use is: $JSON_FILE"
 
 # Check if the JSON file exists
 if [[ ! -f "$JSON_FILE" ]]; then
