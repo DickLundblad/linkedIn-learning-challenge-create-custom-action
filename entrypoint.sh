@@ -2,7 +2,7 @@
 
 set -e  # Exit on any error
 
-JSON_FILE=${1:-"default.json"}  # Default to "default.json" if no argument is given
+JSON_FILE=${INPUT_JSON_FILE:-"default.json"}  # Default to "default.json" if no argument is given
 echo "content of current directory: $(ls -la)"
 echo "file to use is: $JSON_FILE"
 
